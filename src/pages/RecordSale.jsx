@@ -30,7 +30,7 @@ export default function RecordSale({ setPage }) {
       return alert(`Insufficient stock! Available: ${selectedDrug.available}`);
     }
     try {
-      await axios.post("import.meta.env.VITE_API_URL + "/api/sales/add", formData);
+      await axios.post(import.meta.env.VITE_API_URL + "/api/sales/add", formData);
       alert("Sale Recorded successfully!");
       setPage("dashboard");
     } catch (err) {

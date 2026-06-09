@@ -33,7 +33,7 @@ export default function AddDrug({ setPage }) {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      await axios.post("import.meta.env.VITE_API_URL + "/api/stock", formData);
+      await axios.post(import.meta.env.VITE_API_URL + "/api/stock", formData);
       alert("Inventory and Billing record saved successfully!");
       setPage("stock");
     } catch (err) {
