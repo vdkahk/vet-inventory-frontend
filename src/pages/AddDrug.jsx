@@ -18,7 +18,7 @@ export default function AddDrug({ setPage }) {
 
   useEffect(() => {
     // Fetches your existing agencies for the dropdown
-    axios.get("import.meta.env.VITE_API_URL + "/api/stock/agencies")
+    axios.get(import.meta.env.VITE_API_URL + "/api/stock/agencies")
       .then(res => setAgencies(res.data))
       .catch(err => console.error("Error fetching agencies:", err));
   }, []);

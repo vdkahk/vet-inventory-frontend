@@ -11,7 +11,7 @@ export default function Stock() {
 
   const fetchStock = async () => {
     try {
-      const res = await axios.get("import.meta.env.VITE_API_URL + "/api/stock/overview");
+      const res = await axios.get(import.meta.env.VITE_API_URL + "/api/stock/overview");
       setStock(Array.isArray(res.data) ? res.data : []);
       setLoading(false);
     } catch (err) { console.error("Fetch error:", err); setLoading(false); }

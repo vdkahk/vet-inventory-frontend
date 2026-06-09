@@ -13,7 +13,7 @@ export default function RecordSale({ setPage }) {
 
   useEffect(() => {
     // Calling the /dropdown route we fixed in the backend
-    axios.get("import.meta.env.VITE_API_URL + "/api/stock/dropdown")
+    axios.get(import.meta.env.VITE_API_URL + "/api/stock/dropdown")
       .then(res => setDrugs(res.data))
       .catch(err => console.error("Error fetching drug list:", err));
   }, []);

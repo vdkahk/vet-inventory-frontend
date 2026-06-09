@@ -11,7 +11,7 @@ export default function Agencies({ onEdit, setPage }) {
 
   const fetchAgencies = async () => {
     try {
-      const res = await axios.get("import.meta.env.VITE_API_URL + "/api/agencies");
+      const res = await axios.get(import.meta.env.VITE_API_URL + "/api/agencies");
       setAgencies(Array.isArray(res.data) ? res.data : []);
       setLoading(false);
     } catch (err) {
