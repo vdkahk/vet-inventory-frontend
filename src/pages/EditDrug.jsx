@@ -75,7 +75,7 @@ export default function EditDrug({ item, setPage }) {
     if (!validateForm()) return;
 
     try {
-      await axios.put(`http://localhost:5000/api/stock/update/${item.id}`, formData);
+      await axios.put(`import.meta.env.VITE_API_URL/api/stock/update/${item.id}`, formData);
       alert("✅ Inventory Updated!");
       setPage("stock");
     } catch (err) {

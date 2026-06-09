@@ -11,7 +11,7 @@ export default function Stock() {
 
   const fetchStock = async () => {
     try {
-      const res = await axios.get("http://localhost:5000/api/stock/overview");
+      const res = await axios.get("import.meta.env.VITE_API_URL/api/stock/overview");
       setStock(Array.isArray(res.data) ? res.data : []);
       setLoading(false);
     } catch (err) { console.error("Fetch error:", err); setLoading(false); }
@@ -35,7 +35,7 @@ export default function Stock() {
   const handleUpdate = async (e) => {
     e.preventDefault();
     try {
-      await axios.put(`http://localhost:5000/api/stock/update/${editData.id}`, editData);
+      await axios.put(`import.meta.env.VITE_API_URL/api/stock/update/${editData.id}`, editData);
       alert("Inventory updated!");
       setEditData(null);
       fetchStock();
@@ -45,7 +45,7 @@ export default function Stock() {
   const handleDelete = async (uniqueId) => {
     if (window.confirm("Are you sure you want to delete this record?")) {
       try {
-        await axios.delete(`http://localhost:5000/api/stock/delete/${uniqueId}`);
+        await axios.delete(`import.meta.env.VITE_API_URL/api/stock/delete/${uniqueId}`);
         fetchStock(); 
       } catch (err) {
         console.error("Delete error:", err);

@@ -5,7 +5,7 @@ export default function Dashboard() {
   const [stock, setStock] = useState([]);
 
   useEffect(() => {
-    axios.get("http://localhost:5000/api/stock")
+    axios.get("import.meta.env.VITE_API_URL/api/stock")
       .then(res => {
         const data = res.data;
 

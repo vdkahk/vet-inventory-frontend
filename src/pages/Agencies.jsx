@@ -11,7 +11,7 @@ export default function Agencies({ onEdit, setPage }) {
 
   const fetchAgencies = async () => {
     try {
-      const res = await axios.get("http://localhost:5000/api/agencies");
+      const res = await axios.get("import.meta.env.VITE_API_URL/api/agencies");
       setAgencies(Array.isArray(res.data) ? res.data : []);
       setLoading(false);
     } catch (err) {
@@ -31,10 +31,10 @@ export default function Agencies({ onEdit, setPage }) {
     if (window.confirm(`Are you sure you want to remove ${agency.agency_name || "this agency"}?`)) {
       try {
         // --- CHOOSE THE RIGHT URL HERE ---
-        // Option A (Standard): `http://localhost:5000/api/agencies/${id}`
-        // Option B (If A fails): `http://localhost:5000/api/agencies/delete/${id}`
+        // Option A (Standard): `import.meta.env.VITE_API_URL/api/agencies/${id}`
+        // Option B (If A fails): `import.meta.env.VITE_API_URL/api/agencies/delete/${id}`
         
-        await axios.delete(`http://localhost:5000/api/agencies/delete/${id}`);
+        await axios.delete(`import.meta.env.VITE_API_URL/api/agencies/${id}`);
         
         alert("Agency removed successfully");
         fetchAgencies(); 
