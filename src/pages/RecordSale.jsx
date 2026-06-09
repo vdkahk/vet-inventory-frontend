@@ -13,7 +13,7 @@ export default function RecordSale({ setPage }) {
 
   useEffect(() => {
     // Calling the /dropdown route we fixed in the backend
-    axios.get("import.meta.env.VITE_API_URL/api/stock/dropdown")
+    axios.get("import.meta.env.VITE_API_URL + "/api/stock/dropdown")
       .then(res => setDrugs(res.data))
       .catch(err => console.error("Error fetching drug list:", err));
   }, []);
@@ -30,7 +30,7 @@ export default function RecordSale({ setPage }) {
       return alert(`Insufficient stock! Available: ${selectedDrug.available}`);
     }
     try {
-      await axios.post("import.meta.env.VITE_API_URL/api/sales/add", formData);
+      await axios.post("import.meta.env.VITE_API_URL + "/api/sales/add", formData);
       alert("Sale Recorded successfully!");
       setPage("dashboard");
     } catch (err) {

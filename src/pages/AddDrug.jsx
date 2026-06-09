@@ -18,7 +18,7 @@ export default function AddDrug({ setPage }) {
 
   useEffect(() => {
     // Fetches your existing agencies for the dropdown
-    axios.get("import.meta.env.VITE_API_URL/api/stock/agencies")
+    axios.get("import.meta.env.VITE_API_URL + "/api/stock/agencies")
       .then(res => setAgencies(res.data))
       .catch(err => console.error("Error fetching agencies:", err));
   }, []);
@@ -33,7 +33,7 @@ export default function AddDrug({ setPage }) {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      await axios.post("import.meta.env.VITE_API_URL/api/stock", formData);
+      await axios.post("import.meta.env.VITE_API_URL + "/api/stock", formData);
       alert("Inventory and Billing record saved successfully!");
       setPage("stock");
     } catch (err) {

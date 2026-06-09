@@ -13,7 +13,7 @@ export default function AddAgency({ setPage }) {
     e.preventDefault();
     try {
       // Note: We use the existing logic but the UI is now upgraded
-      await axios.post("import.meta.env.VITE_API_URL/api/agencies/add", formData);
+      await axios.post("import.meta.env.VITE_API_URL + "/api/agencies/add", formData);
       alert("✅ Agency partner registered successfully!");
       setPage("agencies");
     } catch (err) {

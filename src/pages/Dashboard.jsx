@@ -26,9 +26,9 @@ export default function Dashboard() {
     const loadData = async () => {
       try {
         const [stockRes, trendRes, profitRes] = await Promise.all([
-          axios.get("import.meta.env.VITE_API_URL/api/stock/overview"),
-          axios.get("import.meta.env.VITE_API_URL/api/sales/trend"),
-          axios.get("import.meta.env.VITE_API_URL/api/sales/profit-stats")
+          axios.get("import.meta.env.VITE_API_URL + "/api/stock/overview"),
+          axios.get("import.meta.env.VITE_API_URL + "/api/sales/trend"),
+          axios.get("import.meta.env.VITE_API_URL + "/api/sales/profit-stats")
         ]);
         setStock(stockRes.data);
         setTrend(trendRes.data);

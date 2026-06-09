@@ -32,7 +32,7 @@ export default function EditAgency({ agency, setPage }) {
     e.preventDefault();
     try {
       // Calls the update route we are adding to the backend
-      await axios.put(`import.meta.env.VITE_API_URL/api/agencies/update/${formData.id}`, formData);
+      await axios.put(`import.meta.env.VITE_API_URL + "/api/agencies/update/${formData.id}`, formData);
       alert("Agency details updated!");
       setPage("agencies"); // Go back to the list
     } catch (err) {
